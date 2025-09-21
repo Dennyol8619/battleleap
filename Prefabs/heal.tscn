@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd6ehkcnkfrss"]
+
+[ext_resource type="Texture2D" uid="uid://6y1x6psqhmv1" path="res://Images/Heal.png" id="1_3vxv4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svu0o"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jekfe"]
+size = Vector2(24, 24)
+
+[node name="Heal" type="RigidBody2D"]
+can_sleep = false
+
+[node name="RCollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_svu0o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.38419e-07, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_3vxv4")
+
+[node name="HArea2D" type="Area2D" parent="Sprite2D"]
+
+[node name="ACollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HArea2D"]
+shape = SubResource("RectangleShape2D_jekfe")

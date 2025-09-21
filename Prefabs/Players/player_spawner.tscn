@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://2wlmsuqwcce6"]
+
+[ext_resource type="Script" uid="uid://ckywsd028luwt" path="res://Scripts/player_spawner.gd" id="1_b6gxy"]
+[ext_resource type="Texture2D" uid="uid://b76qu35mb4b6k" path="res://Images/TeamGunner/CHARACTER_SPRITES/Black/Gunner_Black_Idle.png" id="1_syds5"]
+
+[node name="PlayerSpawn" type="Node2D"]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_b6gxy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_syds5")
+hframes = 5

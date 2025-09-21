@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://wkv5h3mk42xg"]
+
+[ext_resource type="Texture2D" uid="uid://c5e3l33qnjdhd" path="res://Images/TeamGunner/EXTRAS/BulletStream.png" id="1_sny4p"]
+[ext_resource type="Script" uid="uid://d2ufsqakwfpbw" path="res://Scripts/bullet.gd" id="2_0f7cx"]
+[ext_resource type="Texture2D" uid="uid://ck2n8hg1b7te4" path="res://Images/TeamGunner/EXTRAS/SpongeBullet.png" id="3_qnouc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ncwt2"]
+radius = 2.0
+
+[node name="Bullet" type="Sprite2D"]
+z_index = 1
+scale = Vector2(1e-05, 2)
+texture = ExtResource("1_sny4p")
+flip_h = true
+script = ExtResource("2_0f7cx")
+
+[node name="Bullet" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet"]
+shape = SubResource("CircleShape2D_ncwt2")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-20, 0)
+
+[node name="SpongeBullet" type="Sprite2D" parent="."]
+position = Vector2(41, -0.5)
+texture = ExtResource("3_qnouc")
+
+[connection signal="body_entered" from="Bullet" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,0 +1,250 @@
+[gd_scene load_steps=11 format=3 uid="uid://c33ulhbmdu2va"]
+
+[ext_resource type="Script" uid="uid://ruksd3vdlj0w" path="res://Scripts/game_manager.gd" id="1_q7s2u"]
+[ext_resource type="Texture2D" uid="uid://db7ondh8miai3" path="res://Images/Platformer Tileset/Icons/grass-single-platform.png" id="2_7mv47"]
+[ext_resource type="Texture2D" uid="uid://cqcqbxhhr8vwd" path="res://Images/Background.png" id="2_wkk8o"]
+[ext_resource type="Texture2D" uid="uid://blya1hlc8o777" path="res://Images/Platformer Tileset/Icons/cave-single-platform.png" id="3_lvc0p"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_00xaj"]
+
+[sub_resource type="SystemFont" id="SystemFont_nlkcr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7n377"]
+font = SubResource("SystemFont_nlkcr")
+font_size = 150
+
+[sub_resource type="SystemFont" id="SystemFont_xvbgb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0t0ht"]
+font = SubResource("SystemFont_xvbgb")
+font_size = 75
+
+[sub_resource type="LabelSettings" id="LabelSettings_2jpkx"]
+font_size = 25
+
+[node name="Root" type="Node2D"]
+script = ExtResource("1_q7s2u")
+metadata/Player1 = true
+metadata/Player2 = true
+metadata/Player3 = true
+metadata/Player4 = true
+metadata/Player1Score = 0
+metadata/Player2Score = 0
+metadata/Player3Score = 0
+metadata/Player4Score = 0
+metadata/PlayerCount = 2
+metadata/PointsToWin = 1
+metadata/StartingMap = &"res://Scenes/Test/Test.tscn"
+metadata/LoopMap = false
+
+[node name="Menu" type="CanvasLayer" parent="."]
+
+[node name="LevelSelect" type="OptionButton" parent="Menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -261.0
+offset_top = -49.0
+offset_right = -125.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(68, 15)
+selected = 0
+item_count = 8
+popup/item_0/text = "GrassLand1"
+popup/item_0/icon = ExtResource("2_7mv47")
+popup/item_0/id = 0
+popup/item_1/text = "GrassLand2"
+popup/item_1/icon = ExtResource("2_7mv47")
+popup/item_1/id = 1
+popup/item_2/text = "GrassLand3"
+popup/item_2/icon = ExtResource("2_7mv47")
+popup/item_2/id = 2
+popup/item_3/text = "GrassLand4"
+popup/item_3/icon = ExtResource("2_7mv47")
+popup/item_3/id = 3
+popup/item_4/text = "GrassLand5"
+popup/item_4/icon = ExtResource("2_7mv47")
+popup/item_4/id = 4
+popup/item_5/text = "Cave1"
+popup/item_5/icon = ExtResource("3_lvc0p")
+popup/item_5/id = 5
+popup/item_6/text = "Cave2"
+popup/item_6/icon = ExtResource("3_lvc0p")
+popup/item_6/id = 7
+popup/item_7/text = "Teszt"
+popup/item_7/id = 6
+
+[node name="LoopMap" type="CheckButton" parent="Menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.0
+offset_top = -102.0
+offset_right = 97.0
+offset_bottom = -70.9998
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(97, 15.5)
+text = "Loop Selected Map"
+
+[node name="PlayerCount" type="OptionButton" parent="Menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.5
+offset_top = 26.0
+offset_right = 57.5
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(57, 15)
+selected = 0
+item_count = 3
+popup/item_0/text = "2 players"
+popup/item_0/id = 0
+popup/item_1/text = "3 players"
+popup/item_1/id = 1
+popup/item_2/text = "4 players"
+popup/item_2/id = 2
+
+[node name="RoundsToWin" type="OptionButton" parent="Menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 139.0
+offset_top = -49.0
+offset_right = 262.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(61, 15)
+selected = 0
+item_count = 10
+popup/item_0/text = "1 round"
+popup/item_0/id = 0
+popup/item_1/text = "2 rounds"
+popup/item_1/id = 1
+popup/item_2/text = "3 rounds"
+popup/item_2/id = 2
+popup/item_3/text = "4 rounds"
+popup/item_3/id = 3
+popup/item_4/text = "5 rounds"
+popup/item_4/id = 4
+popup/item_5/text = "6 rounds"
+popup/item_5/id = 5
+popup/item_6/text = "7 rounds"
+popup/item_6/id = 6
+popup/item_7/text = "8 rounds"
+popup/item_7/id = 7
+popup/item_8/text = "9 rounds"
+popup/item_8/id = 8
+popup/item_9/text = "10 rounds"
+popup/item_9/id = 9
+
+[node name="Start" type="Button" parent="Menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 166.0
+offset_right = 68.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(66, 20)
+text = "Start Game"
+icon = SubResource("CompressedTexture2D_00xaj")
+
+[node name="WinScreen" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="WinScreen"]
+visible = false
+modulate = Color(1, 1, 1, 0.686275)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wkk8o")
+
+[node name="RoundLabel" type="Label" parent="WinScreen"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -215.0
+offset_top = -224.0
+offset_right = 215.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Round Over"
+label_settings = SubResource("LabelSettings_7n377")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerLabel" type="Label" parent="WinScreen"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -238.0
+offset_top = -62.0
+offset_right = 238.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Player X Won"
+label_settings = SubResource("LabelSettings_0t0ht")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinLabel" type="Label" parent="WinScreen"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 76.0
+offset_right = 100.0
+offset_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Player 1: 0 Win
+Player 2: 0 Win
+Player 3: 0 Win
+Player 4: 0 Win"
+label_settings = SubResource("LabelSettings_2jpkx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartTimer" type="Timer" parent="."]
+
+[node name="DeathTimer" type="Timer" parent="."]
+
+[connection signal="player_death" from="." to="." method="_on_player_death"]
+[connection signal="item_selected" from="Menu/LevelSelect" to="." method="_on_level_select_item_selected"]
+[connection signal="toggled" from="Menu/LoopMap" to="." method="_on_loop_map_toggled"]
+[connection signal="item_selected" from="Menu/PlayerCount" to="." method="_on_player_count_item_selected"]
+[connection signal="item_selected" from="Menu/RoundsToWin" to="." method="_on_rounds_to_win_item_selected"]
+[connection signal="pressed" from="Menu/Start" to="." method="_on_start_pressed"]
+[connection signal="timeout" from="RestartTimer" to="." method="_on_restart_timer_timeout"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqd7pg16v6dwn"]
+
+[ext_resource type="Texture2D" uid="uid://dowkaa6wj45eh" path="res://Images/Wooden_Crate.png" id="1_1jubg"]
+[ext_resource type="Texture2D" uid="uid://dbtk8nqdy8j1q" path="res://Images/Wooden_Crate_anim.png" id="1_ov88w"]
+[ext_resource type="Script" uid="uid://beqsj6xojbqnw" path="res://Scripts/wooden_crate.gd" id="2_pniau"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jekfe"]
+size = Vector2(64, 64)
+
+[node name="WoodenCrate_Static" type="Sprite2D"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_ov88w")
+hframes = 5
+script = ExtResource("2_pniau")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="SCollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+scale = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_jekfe")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="ACollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_jekfe")
+
+[node name="Sprite2D2_back" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
+texture = ExtResource("1_1jubg")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

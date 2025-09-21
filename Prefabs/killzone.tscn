@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpfrdstjj26fm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0m3p"]
+size = Vector2(1600, 64)
+
+[node name="KillZone" type="Sprite2D"]
+z_index = 10
+
+[node name="FArea2D" type="Area2D" parent="."]
+
+[node name="FCollisionShape2D" type="CollisionShape2D" parent="FArea2D"]
+shape = SubResource("RectangleShape2D_x0m3p")
