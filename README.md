@@ -31,7 +31,7 @@ The focus is on positioning, timing, and survival rather than speed.
 ---
 
 ## ▶️ Play the Game
-- **Web (test version):** [Itch.io page](https://daniel-homan.itch.io/battleleap) *(early version, not final release)*  
+- **Web (test version):** [Itch.io page](https://daniel-homan.itch.io/battleleap) *(early version, not final release); Password: Test24*  
 - **Windows / Linux:** coming soon  
 
 ---
