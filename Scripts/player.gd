@@ -24,6 +24,7 @@ var is_crouched:bool = false
 var is_dead:bool = false
 var can_fall:bool = true
 var face_right:bool = true
+var can_shoot:bool = true
 var bullet_pos:Vector2 = Vector2(15.5, -2.5)
 var muzzle_pos:Vector2 = Vector2(19, -2.5)
 var bullet_ins
@@ -53,7 +54,7 @@ func _physics_process(delta):
 	if Input.is_action_just_released("Down" + str(id)) and is_on_floor() and !is_dead:
 		crouch(false)
 		
-	if Input.is_action_just_pressed("Shoot" + str(id)) and !is_dead:
+	if Input.is_action_just_pressed("Shoot" + str(id)) and !is_dead and can_shoot:
 		shoot()
 
 	# Get the input direction and handle the movement/deceleration.
@@ -120,6 +121,7 @@ func crouch(pressed:bool):
 
 func shoot(): #Randomizált fel és le eltolás
 	timer.start(0.3)
+	can_shoot = false
 	muzzle_flash.visible = true
 	bullet_ins = bullet.instantiate()
 	get_parent().add_child(bullet_ins)
@@ -136,13 +138,14 @@ func _on_area_2d_area_entered(area):
 		health = 0
 		death()
 	elif str(area)[0] == "H":
-		if health < 5:
+		if 0 < health and health < 5:
 			health += 1
 			healt_bar.frame -= 1
 			area.get_parent().get_parent().queue_free()
 
 func _on_timer_timeout():
 	timer.stop()
+	can_shoot = true
 	muzzle_flash.visible = false
 
 func death():

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvcuh0wifqerv"
-path="res://.godot/imported/Exploding Red Oil Barrel.png-20d9b847dcfc36556345db46e57fa25d.ctex"
+uid="uid://bcufspsisddsu"
+path="res://.godot/imported/Screenshot 2025-09-21 190448.png-6d2ef0ab078316d4466bb6d61d1bc089.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/BarrelAndExploding/Exploding Red Oil Barrel.png"
-dest_files=["res://.godot/imported/Exploding Red Oil Barrel.png-20d9b847dcfc36556345db46e57fa25d.ctex"]
+source_file="res://Screenshots/Screenshot 2025-09-21 190448.png"
+dest_files=["res://.godot/imported/Screenshot 2025-09-21 190448.png-6d2ef0ab078316d4466bb6d61d1bc089.ctex"]
 
 [params]
 

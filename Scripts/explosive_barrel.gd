@@ -1,7 +1,6 @@
 extends Node2D
 
 enum Colors {Red, Green, Blue, Purple, White, RandomColor}
-@export var color:Colors = Colors.Red
 var health:int = 5
 
 @onready var timer:Timer = $Timer
@@ -16,7 +15,9 @@ func _on_area_2d_area_entered(area):
 	if str(area)[0] == "B":
 		health -= 1
 		fire.visible = true
-		fire.changeColor(color)
+		fire.changeColor(Colors.Red)
+		if health == 1:
+			fire.changeColor(Colors.White)
 		if health == 0:
 			explode()
 

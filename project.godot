@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="2D Shooter"
-config/tags=PackedStringArray("2d")
+config/tags=PackedStringArray("2d", "local", "multiplayer", "platformer")
 run/main_scene="res://Scenes/Main.tscn"
-config/features=PackedStringArray("4.4", "Mobile")
+config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
 [filesystem]
