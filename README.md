@@ -1,6 +1,6 @@
 # BattleLeap
 
-A tactical **2D platformer shooter** for 2–4 players.
+A tactical **2D platformer shooter** for 2-4 players.
 This project was created as a hobby in the **Godot Engine**. It represents a personal project I worked on for fun, which I also share here alongside my other work.
 
 ---
@@ -13,12 +13,12 @@ The focus is on positioning, timing, and survival rather than speed.
 ---
 
 ## ✨ Features
-- Local multiplayer for **2–4 players**
+- Local multiplayer for **2-4 players**
 - Pixel art visuals
 - 6 maps to play on (20 planned)
 - Configurable match rules:
   - Number of wins required
-  - Number of players (2–4)
+  - Number of players (2-4)
   - Chosen map
   - Map rotation or random selection
 - Explosive barrels and fire as instant-death hazards
