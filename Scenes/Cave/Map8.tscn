@@ -153,10 +153,10 @@ position = Vector2(423, -167)
 [node name="Torch12" parent="Props" instance=ExtResource("8_k1yx2")]
 position = Vector2(263, -84)
 
-[node name="Ladder" parent="." instance=ExtResource("9_kdl0g")]
+[node name="Ladder" parent="Props" instance=ExtResource("9_kdl0g")]
 position = Vector2(168, -24)
 lenght = 6
 
-[node name="Ladder2" parent="." instance=ExtResource("9_kdl0g")]
+[node name="Ladder2" parent="Props" instance=ExtResource("9_kdl0g")]
 position = Vector2(360, -24)
 lenght = 6

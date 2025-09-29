@@ -1,10 +1,10 @@
 extends Sprite2D
 
-var bullet_speed:float = 1000
-var bullet_direction:bool = true
+const bullet_speed:float = 1000
+var bullet_is_right:bool = true
 
 func _physics_process(delta):
-	if bullet_direction:
+	if bullet_is_right:
 		position.x += bullet_speed * delta
 		scale.x = 1
 	else:
@@ -17,5 +17,5 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 func _on_area_2d_body_entered(body):
 	queue_free()
 
-func get_direction(right:bool):
-	bullet_direction = right
+func set_direction(right:bool):
+	bullet_is_right = right

@@ -9,7 +9,7 @@ size = Vector2(14, 14)
 z_index = 10
 texture = ExtResource("1_2guuy")
 
-[node name="LArea2D" type="Area2D" parent="."]
+[node name="LArea2D" type="Area2D" parent="." groups=["ladder"]]
 
 [node name="LCollisionShape2D" type="CollisionShape2D" parent="LArea2D"]
 shape = SubResource("RectangleShape2D_x0m3p")

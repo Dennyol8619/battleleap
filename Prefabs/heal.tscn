@@ -20,7 +20,7 @@ position = Vector2(2.38419e-07, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_3vxv4")
 
-[node name="HArea2D" type="Area2D" parent="Sprite2D"]
+[node name="HArea2D" type="Area2D" parent="Sprite2D" groups=["health_pack"]]
 
 [node name="ACollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HArea2D"]
 shape = SubResource("RectangleShape2D_jekfe")
