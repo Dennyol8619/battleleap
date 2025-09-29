@@ -25,20 +25,12 @@ var is_dead:bool = false
 var can_fall:bool = true
 var face_right:bool = true
 var can_shoot:bool = true
+var ladder_count:int = 0
 var bullet_pos:Vector2 = Vector2(15.5, -2.5)
 var muzzle_pos:Vector2 = Vector2(19, -2.5)
 var bullet_ins
 
 func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
-		was_in_air = true
-	else:
-		was_in_air = false
-		if !is_crouched:
-			animation_locked = false
-	
 	if is_dead:
 		head_collision.disabled = true
 		if is_on_floor():
@@ -46,12 +38,12 @@ func _physics_process(delta):
 			body_collision.disabled = true
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("Up" + str(id)) and is_on_floor() and !is_crouched and !is_dead:
+	if Input.is_action_just_pressed("Up" + str(id)) and is_on_floor() and !is_crouched and !is_dead and ladder_count == 0:
 		jump(delta)
 	
-	if Input.is_action_just_pressed("Down" + str(id)) and is_on_floor() and !is_dead:
+	if Input.is_action_just_pressed("Down" + str(id)) and is_on_floor() and !is_dead and ladder_count == 0:
 		crouch(true)
-	if Input.is_action_just_released("Down" + str(id)) and is_on_floor() and !is_dead:
+	if Input.is_action_just_released("Down" + str(id)) and is_on_floor() and !is_dead and ladder_count == 0:
 		crouch(false)
 		
 	if Input.is_action_just_pressed("Shoot" + str(id)) and !is_dead and can_shoot:
@@ -64,6 +56,20 @@ func _physics_process(delta):
 		velocity.x = direction.x * speed * delta
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed * delta)
+	
+	if direction and ladder_count != 0 and !is_dead:
+		velocity.y = direction.y * speed * delta
+	else:
+		if ladder_count != 0:
+			velocity.y = move_toward(velocity.y, 0, speed * delta)
+		# Add the gravity.
+		if not is_on_floor() and ladder_count == 0:
+			velocity.y += gravity * delta
+			was_in_air = true
+		else:
+			was_in_air = false
+			if !is_crouched:
+				animation_locked = false
 	
 	if can_fall:
 		move_and_slide()
@@ -134,6 +140,8 @@ func _on_area_2d_area_entered(area):
 		healt_bar.frame += 1
 		if health == 0:
 			death()
+	elif str(area)[0] == "L":
+		ladder_count += 1
 	elif str(area)[0] == "F" or str(area)[0] == "E":
 		health = 0
 		death()
@@ -142,6 +150,10 @@ func _on_area_2d_area_entered(area):
 			health += 1
 			healt_bar.frame -= 1
 			area.get_parent().get_parent().queue_free()
+
+func _on_area_2d_area_exited(area):
+	if str(area)[0] == "L":
+		ladder_count = max(0, ladder_count - 1)
 
 func _on_timer_timeout():
 	timer.stop()

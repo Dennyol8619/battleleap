@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dps06wom0vr6k"]
+
+[ext_resource type="Script" uid="uid://c66ml5fndlgtv" path="res://Scripts/ladder.gd" id="1_2guuy"]
+[ext_resource type="Texture2D" uid="uid://xj2tpwthye2f" path="res://Images/Platformer Tileset/Props/ladder.png" id="1_rmtat"]
+
+[node name="Ladder" type="Sprite2D"]
+z_index = 10
+texture = ExtResource("1_rmtat")
+script = ExtResource("1_2guuy")

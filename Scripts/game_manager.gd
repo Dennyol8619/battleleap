@@ -1,6 +1,6 @@
 extends Node2D
 
-signal  player_death(id:int)
+signal player_death(id:int)
 
 var map
 var level
@@ -24,6 +24,9 @@ var maps = [
 	"res://Scenes/GrassLand/Map5.tscn",
 	"res://Scenes/Cave/Map6.tscn",
 	"res://Scenes/Cave/Map7.tscn",
+	"res://Scenes/Cave/Map8.tscn",
+	"res://Scenes/Cave/Map9.tscn",
+	"res://Scenes/Cave/Map10.tscn",
 	"res://Scenes/Test/Test.tscn"
 	]
 
@@ -53,7 +56,10 @@ func _on_level_select_item_selected(index):
 		4: set_meta("StartingMap", "res://Scenes/GrassLand/Map5.tscn")
 		5: set_meta("StartingMap", "res://Scenes/Cave/Map6.tscn")
 		6: set_meta("StartingMap", "res://Scenes/Cave/Map7.tscn")
-		7: set_meta("StartingMap", "res://Scenes/Test/Test.tscn")
+		7: set_meta("StartingMap", "res://Scenes/Cave/Map8.tscn")
+		8: set_meta("StartingMap", "res://Scenes/Cave/Map9.tscn")
+		9: set_meta("StartingMap", "res://Scenes/Cave/Map10.tscn")
+		10: set_meta("StartingMap", "res://Scenes/Test/Test.tscn")
 
 func _on_loop_map_toggled(toggled_on):
 	set_meta("LoopMap", toggled_on)
