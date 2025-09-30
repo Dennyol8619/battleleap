@@ -4,6 +4,5 @@
 [ext_resource type="Texture2D" uid="uid://xj2tpwthye2f" path="res://Images/Platformer Tileset/Props/ladder.png" id="1_rmtat"]
 
 [node name="Ladder" type="Sprite2D"]
-z_index = 10
 texture = ExtResource("1_rmtat")
 script = ExtResource("1_2guuy")

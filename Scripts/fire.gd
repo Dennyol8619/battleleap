@@ -7,7 +7,6 @@ enum Colors {Red, Green, Blue, Purple, White, RandomColor}
 @export var is_background:bool = false
 @onready var fire_collision:CollisionShape2D = $FireArea2D/FireCollisionShape2D
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	if is_background:
 		z_index = 0
@@ -29,7 +28,6 @@ func changeColor(fcolor):
 		Colors.Purple: play("Purple")
 		Colors.White: play("White")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if !can_damage and !fire_collision.disabled:
 		fire_collision.disabled = true

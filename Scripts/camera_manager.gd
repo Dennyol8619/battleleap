@@ -5,7 +5,7 @@ const padding:float = 10.0
 @export var corner1:Marker2D
 @export var corner2:Marker2D
 
-func _process(delta):
+func _process(_delta):
 	#var ds:Vector2 = DisplayServer.window_get_size()
 	var ds:Vector2 = get_viewport_rect().size
 	global_position = (corner1.global_position + corner2.global_position) * 0.5
