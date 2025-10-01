@@ -27,6 +27,7 @@ position = Vector2(528, 0)
 [node name="BackGround" type="Node2D" parent="Map0_base"]
 
 [node name="Sky" type="Sprite2D" parent="Map0_base/BackGround"]
+z_index = -1
 position = Vector2(264, -144)
 scale = Vector2(64, 4)
 texture = ExtResource("2_tpv2f")
