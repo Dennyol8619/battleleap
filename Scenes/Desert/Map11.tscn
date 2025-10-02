@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4idmnlypr143"]
+
+[ext_resource type="Script" uid="uid://cm4x8rble0ovo" path="res://Scripts/camera_manager.gd" id="1_74gx5"]
+[ext_resource type="PackedScene" uid="uid://cxyvmawpd1asq" path="res://Scenes/Desert/Map11_base.tscn" id="2_r8nth"]
+[ext_resource type="PackedScene" uid="uid://2wlmsuqwcce6" path="res://Prefabs/Players/player_spawner.tscn" id="4_w2dds"]
+[ext_resource type="PackedScene" uid="uid://cpfrdstjj26fm" path="res://Prefabs/killzone.tscn" id="5_b1abp"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8wfv5"]
+normal = Vector2(1, 0)
+
+[node name="Map11" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("corner1", "corner2")]
+script = ExtResource("1_74gx5")
+corner1 = NodePath("../TopLeft")
+corner2 = NodePath("../BottomRight")
+
+[node name="TopLeft" type="Marker2D" parent="."]
+position = Vector2(0, -288)
+
+[node name="BottomRight" type="Marker2D" parent="."]
+position = Vector2(528, 0)
+
+[node name="Map11_base" parent="." instance=ExtResource("2_r8nth")]
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("4_w2dds")]
+position = Vector2(29, -31)
+
+[node name="PlayerSpawn2" parent="." instance=ExtResource("4_w2dds")]
+position = Vector2(49, -31)
+id = 2
+
+[node name="PlayerSpawn3" parent="." instance=ExtResource("4_w2dds")]
+position = Vector2(70, -31)
+id = 3
+
+[node name="PlayerSpawn4" parent="." instance=ExtResource("4_w2dds")]
+position = Vector2(90, -31)
+id = 4
+
+[node name="KillZone" parent="." instance=ExtResource("5_b1abp")]
+position = Vector2(264, 144)
+
+[node name="Wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+shape = SubResource("WorldBoundaryShape2D_8wfv5")
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(528, 0)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+shape = SubResource("WorldBoundaryShape2D_8wfv5")

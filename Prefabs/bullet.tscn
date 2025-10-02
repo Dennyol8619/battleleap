@@ -14,7 +14,7 @@ texture = ExtResource("1_sny4p")
 flip_h = true
 script = ExtResource("2_0f7cx")
 
-[node name="Bullet" type="Area2D" parent="."]
+[node name="Bullet" type="Area2D" parent="." groups=["bullet"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet"]
 shape = SubResource("CircleShape2D_ncwt2")

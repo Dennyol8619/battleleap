@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 @export var id:int = 1
-var speed:float = 7000
-var jump_velocity:float = -15000
+const speed:float = 7000
+const jump_velocity:float = -15000
 var health:int = 5
 
 @onready var animated_sprite:AnimatedSprite2D = $AnimatedSprite2D
@@ -12,8 +12,8 @@ var health:int = 5
 @onready var muzzle_flash:Sprite2D = $MuzzleFlash
 @onready var timer:Timer = $MuzzleFlash/Timer
 @onready var head_area:CollisionShape2D = $Area2D/Head
-@onready var healt_bar:Sprite2D = $HealthBar
-@onready var bullet = preload("res://Prefabs/bullet.tscn")
+@onready var health_bar:Sprite2D = $HealthBar
+@onready var bullet:PackedScene = preload("res://Prefabs/bullet.tscn")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -25,20 +25,11 @@ var is_dead:bool = false
 var can_fall:bool = true
 var face_right:bool = true
 var can_shoot:bool = true
+var ladder_count:int = 0
 var bullet_pos:Vector2 = Vector2(15.5, -2.5)
 var muzzle_pos:Vector2 = Vector2(19, -2.5)
-var bullet_ins
 
 func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
-		was_in_air = true
-	else:
-		was_in_air = false
-		if !is_crouched:
-			animation_locked = false
-	
 	if is_dead:
 		head_collision.disabled = true
 		if is_on_floor():
@@ -46,12 +37,12 @@ func _physics_process(delta):
 			body_collision.disabled = true
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("Up" + str(id)) and is_on_floor() and !is_crouched and !is_dead:
+	if Input.is_action_just_pressed("Up" + str(id)) and is_on_floor() and !is_crouched and !is_dead and ladder_count == 0:
 		jump(delta)
 	
-	if Input.is_action_just_pressed("Down" + str(id)) and is_on_floor() and !is_dead:
+	if Input.is_action_just_pressed("Down" + str(id)) and is_on_floor() and !is_dead and ladder_count == 0:
 		crouch(true)
-	if Input.is_action_just_released("Down" + str(id)) and is_on_floor() and !is_dead:
+	if Input.is_action_just_released("Down" + str(id)) and is_on_floor() and !is_dead and ladder_count == 0:
 		crouch(false)
 		
 	if Input.is_action_just_pressed("Shoot" + str(id)) and !is_dead and can_shoot:
@@ -65,15 +56,25 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed * delta)
 	
+	if direction and ladder_count != 0 and !is_dead:
+		velocity.y = direction.y * speed * delta
+	else:
+		if ladder_count != 0:
+			velocity.y = move_toward(velocity.y, 0, speed * delta)
+		# Add the gravity.
+		if not is_on_floor() and ladder_count == 0:
+			velocity.y += gravity * delta
+			was_in_air = true
+		else:
+			was_in_air = false
+			if !is_crouched:
+				animation_locked = false
+	
 	if can_fall:
 		move_and_slide()
 	if !is_dead:
 		update_animation()
 		update_facing_direction()
-		var rnd1:float = randf_range(-1, 0)
-		var rnd2:float = randf_range(-0.1, 0.1)
-		bullet_position.position = Vector2(bullet_pos.x, bullet_pos.y + rnd1)
-		muzzle_flash.position = Vector2(muzzle_pos.x, muzzle_pos.y + rnd2)
 
 func update_animation():
 	if !animation_locked:
@@ -121,27 +122,39 @@ func crouch(pressed:bool):
 
 func shoot(): #Randomizált fel és le eltolás
 	timer.start(0.3)
+	
+	var rnd1:float = randf_range(-1, 0)
+	var rnd2:float = randf_range(-0.1, 0.1)
+	bullet_position.position = Vector2(bullet_pos.x, bullet_pos.y + rnd1)
+	muzzle_flash.position = Vector2(muzzle_pos.x, muzzle_pos.y + rnd2)
+	
 	can_shoot = false
 	muzzle_flash.visible = true
-	bullet_ins = bullet.instantiate()
+	var bullet_ins = bullet.instantiate()
 	get_parent().add_child(bullet_ins)
 	bullet_ins.global_position = $BulletPos.global_position
-	bullet_ins.get_direction(face_right)
+	bullet_ins.set_direction(face_right)
 
 func _on_area_2d_area_entered(area):
-	if str(area)[0] == "B":
+	if area.is_in_group("bullet"):
 		health -= 1
-		healt_bar.frame += 1
+		health_bar.frame = 5 - health
 		if health == 0:
 			death()
-	elif str(area)[0] == "F" or str(area)[0] == "E":
+	elif area.is_in_group("ladder"):
+		ladder_count += 1
+	elif area.is_in_group("fire") or area.is_in_group("explotion") or area.is_in_group("killzone"):
 		health = 0
 		death()
-	elif str(area)[0] == "H":
+	elif area.is_in_group("health_pack"):
 		if 0 < health and health < 5:
 			health += 1
-			healt_bar.frame -= 1
+			health_bar.frame = 5 - health
 			area.get_parent().get_parent().queue_free()
+
+func _on_area_2d_area_exited(area):
+	if area.is_in_group("ladder"):
+		ladder_count = max(0, ladder_count - 1)
 
 func _on_timer_timeout():
 	timer.stop()
@@ -150,7 +163,7 @@ func _on_timer_timeout():
 
 func death():
 	is_dead = true
-	healt_bar.frame = 5
+	health_bar.frame = 5
 	animated_sprite.play("death")
 	animation_locked = true
 	get_tree().get_root().get_node("Root").emit_signal("player_death", id)

@@ -18,15 +18,17 @@ texture = ExtResource("1_vo61l")
 hframes = 9
 
 [node name="1Area2D" type="Area2D" parent="Bridge1"]
+position = Vector2(0, -3)
 
 [node name="1CollisionShape2D" type="CollisionShape2D" parent="Bridge1/1Area2D"]
-position = Vector2(0, -8)
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_jekfe")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Bridge1"]
+position = Vector2(0, -3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge1/StaticBody2D"]
-position = Vector2(2.23517e-08, -6)
+position = Vector2(-2.23517e-08, -3)
 rotation = 0.174533
 shape = SubResource("RectangleShape2D_tyy6o")
 

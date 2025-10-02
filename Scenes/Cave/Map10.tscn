@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://drppfdjwnykar"]
+
+[ext_resource type="Script" uid="uid://cm4x8rble0ovo" path="res://Scripts/camera_manager.gd" id="1_27ttv"]
+[ext_resource type="PackedScene" uid="uid://d3j24gii761ma" path="res://Scenes/Cave/Map10_base.tscn" id="2_27ttv"]
+[ext_resource type="PackedScene" uid="uid://2wlmsuqwcce6" path="res://Prefabs/Players/player_spawner.tscn" id="3_co8v4"]
+[ext_resource type="PackedScene" uid="uid://cpfrdstjj26fm" path="res://Prefabs/killzone.tscn" id="4_pqblb"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_27ttv"]
+normal = Vector2(1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_27ttv"]
+size = Vector2(20, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdnds"]
+size = Vector2(20, 58)
+
+[node name="Map10" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("corner1", "corner2")]
+script = ExtResource("1_27ttv")
+corner1 = NodePath("../TopLeft")
+corner2 = NodePath("../BottomRight")
+
+[node name="TopLeft" type="Marker2D" parent="."]
+position = Vector2(0, -288)
+
+[node name="BottomRight" type="Marker2D" parent="."]
+position = Vector2(528, 0)
+
+[node name="Map10_base" parent="." instance=ExtResource("2_27ttv")]
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("3_co8v4")]
+position = Vector2(24, -26)
+
+[node name="PlayerSpawn2" parent="." instance=ExtResource("3_co8v4")]
+position = Vector2(488, -139)
+id = 2
+
+[node name="PlayerSpawn3" parent="." instance=ExtResource("3_co8v4")]
+position = Vector2(23, -106)
+id = 3
+
+[node name="PlayerSpawn4" parent="." instance=ExtResource("3_co8v4")]
+position = Vector2(488, -253)
+id = 4
+
+[node name="KillZone" parent="." instance=ExtResource("4_pqblb")]
+position = Vector2(264, 144)
+
+[node name="Wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+shape = SubResource("WorldBoundaryShape2D_27ttv")
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(485, -88)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+shape = SubResource("RectangleShape2D_27ttv")
+
+[node name="Wall3" type="StaticBody2D" parent="."]
+position = Vector2(485, -208)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
+shape = SubResource("RectangleShape2D_tdnds")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall3"]
+position = Vector2(38, 0)
+shape = SubResource("RectangleShape2D_tdnds")
