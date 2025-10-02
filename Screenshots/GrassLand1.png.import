@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de7rsr5d6nxd8"
-path="res://.godot/imported/Screenshot 2025-09-21 190425.png-37f9d275e80157d2e1d3abc37cb44bf5.ctex"
+uid="uid://c5ryk8ifcsn1w"
+path="res://.godot/imported/GrassLand1.png-345baf318ba2b73e0c79afc8502e153d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Screenshots/Screenshot 2025-09-21 190425.png"
-dest_files=["res://.godot/imported/Screenshot 2025-09-21 190425.png-37f9d275e80157d2e1d3abc37cb44bf5.ctex"]
+source_file="res://Screenshots/GrassLand1.png"
+dest_files=["res://.godot/imported/GrassLand1.png-345baf318ba2b73e0c79afc8502e153d.ctex"]
 
 [params]
 

@@ -75,10 +75,10 @@ position = Vector2(192, -261)
 position = Vector2(287, -176)
 
 [node name="Torch" parent="Props" instance=ExtResource("5_o1no4")]
-position = Vector2(88, -36)
+position = Vector2(88, -58)
 
 [node name="Torch2" parent="Props" instance=ExtResource("5_o1no4")]
-position = Vector2(184, -36)
+position = Vector2(184, -59)
 
 [node name="Torch3" parent="Props" instance=ExtResource("5_o1no4")]
 position = Vector2(374, -68)
