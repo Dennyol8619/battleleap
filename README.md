@@ -15,7 +15,7 @@ The focus is on positioning, timing, and survival rather than speed.
 ## ✨ Features
 - Local multiplayer for **2-4 players**
 - Pixel art visuals
-- 6 maps to play on (20 planned)
+- 10 maps to play on (20 planned)
 - Configurable match rules:
   - Number of wins required
   - Number of players (2-4)
@@ -25,7 +25,7 @@ The focus is on positioning, timing, and survival rather than speed.
 - Breakable crates that may drop **healing items**
 - Player mechanics:
   - Jump, walk, shoot
-  - Crouch (reduced hit chance but can’t shoot)
+  - Crouch (reduced hit chance but can’t move)
   - 5 HP per player
 
 ---
@@ -44,7 +44,7 @@ The focus is on positioning, timing, and survival rather than speed.
 
 ## 📝 Planned Features / Roadmap
 - Add **mines** that appear on the map or can be dropped from breakable crates
-- Expand to **20 maps** (currently 6)
+- Expand to **20 maps** (currently 10)
 - Add **sounds and music** for a more immersive experience
 - Implement a proper **menu system**
 - Adjust **fire damage mechanics**
