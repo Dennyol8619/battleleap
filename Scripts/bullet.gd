@@ -6,10 +6,10 @@ var bullet_is_right:bool = true
 func _physics_process(delta):
 	if bullet_is_right:
 		position.x += bullet_speed * delta
-		scale.x = 1
+		scale.x = 4
 	else:
 		position.x -= bullet_speed * delta
-		scale.x = -1
+		scale.x = -4
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()

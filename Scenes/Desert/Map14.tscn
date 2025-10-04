@@ -4,11 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://hjdnllawwc77" path="res://Scenes/Desert/Map14_base.tscn" id="2_5gaeq"]
 [ext_resource type="PackedScene" uid="uid://2wlmsuqwcce6" path="res://Prefabs/Players/player_spawner.tscn" id="3_nqu48"]
 [ext_resource type="PackedScene" uid="uid://cpfrdstjj26fm" path="res://Prefabs/killzone.tscn" id="4_7fbeg"]
+[ext_resource type="PackedScene" uid="uid://dec5p7ojot6js" path="res://Prefabs/map_border.tscn" id="5_4m0o0"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8wfv5"]
-normal = Vector2(1, 0)
-
-[node name="Map11" type="Node2D"]
+[node name="Map14" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("corner1", "corner2")]
 script = ExtResource("1_5gaeq")
@@ -41,14 +39,4 @@ id = 4
 [node name="KillZone" parent="." instance=ExtResource("4_7fbeg")]
 position = Vector2(264, 144)
 
-[node name="Wall" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-shape = SubResource("WorldBoundaryShape2D_8wfv5")
-
-[node name="Wall2" type="StaticBody2D" parent="."]
-position = Vector2(528, 0)
-rotation = 3.14159
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
-shape = SubResource("WorldBoundaryShape2D_8wfv5")
+[node name="MapBorder" parent="." instance=ExtResource("5_4m0o0")]

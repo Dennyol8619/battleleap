@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bq5104rhip2rb"]
+[gd_scene load_steps=6 format=3 uid="uid://bq5104rhip2rb"]
 
 [ext_resource type="Script" uid="uid://cm4x8rble0ovo" path="res://Scripts/camera_manager.gd" id="1_5vn7k"]
 [ext_resource type="PackedScene" uid="uid://b4rkvt61r0fbp" path="res://Scenes/Cave/Map9_base.tscn" id="2_5vn7k"]
 [ext_resource type="PackedScene" uid="uid://2wlmsuqwcce6" path="res://Prefabs/Players/player_spawner.tscn" id="3_pusne"]
 [ext_resource type="PackedScene" uid="uid://cpfrdstjj26fm" path="res://Prefabs/killzone.tscn" id="4_k8p3j"]
+[ext_resource type="PackedScene" uid="uid://dec5p7ojot6js" path="res://Prefabs/map_border.tscn" id="5_666rh"]
 
 [node name="Map9" type="Node2D"]
 
@@ -37,3 +38,5 @@ id = 4
 
 [node name="KillZone" parent="." instance=ExtResource("4_k8p3j")]
 position = Vector2(264, 144)
+
+[node name="MapBorder" parent="." instance=ExtResource("5_666rh")]

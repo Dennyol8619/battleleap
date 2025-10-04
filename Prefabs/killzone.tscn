@@ -6,7 +6,7 @@ size = Vector2(1600, 64)
 [node name="KillZone" type="Sprite2D"]
 z_index = 10
 
-[node name="FArea2D" type="Area2D" parent="." groups=["killzone"]]
+[node name="Area2D" type="Area2D" parent="." groups=["killzone"]]
 
-[node name="FCollisionShape2D" type="CollisionShape2D" parent="FArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_x0m3p")

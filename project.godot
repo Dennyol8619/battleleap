@@ -29,6 +29,7 @@ killzone=""
 bullet=""
 explotion=""
 fire=""
+slow_sand=""
 
 [input]
 

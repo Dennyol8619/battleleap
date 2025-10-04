@@ -4,8 +4,8 @@ enum Colors {Red, Green, Blue, Purple, White, RandomColor}
 var health:int = 5
 
 @onready var timer:Timer = $Timer
-@onready var static_collision:CollisionShape2D = $StaticBody2D/SCollisionShape2D
-@onready var area_collision:CollisionShape2D = $Area2D/ACollisionShape2D
+@onready var static_collision:CollisionShape2D = $StaticBody2D/CollisionShape2D
+@onready var area_collision:CollisionShape2D = $Area2D/CollisionShape2D
 @onready var explotion_anim:AnimatedSprite2D = $ExplotionAnim
 @onready var explotion:CollisionShape2D = $Explotion/CollisionShape2D
 @onready var fire:AnimatedSprite2D = $Fire

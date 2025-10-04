@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
 @export var id:int = 1
-const speed:float = 7000
-const jump_velocity:float = -15000
+const speed:float = 150
+const air_speed:float = 0.7
+const sand_speed:float = 0.3
+const jump_velocity:float = -250
 var health:int = 5
 
 @onready var animated_sprite:AnimatedSprite2D = $AnimatedSprite2D
@@ -26,6 +28,7 @@ var can_fall:bool = true
 var face_right:bool = true
 var can_shoot:bool = true
 var ladder_count:int = 0
+var sand_count:int = 0
 var bullet_pos:Vector2 = Vector2(15.5, -2.5)
 var muzzle_pos:Vector2 = Vector2(19, -2.5)
 
@@ -38,31 +41,39 @@ func _physics_process(delta):
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("Up" + str(id)) and is_on_floor() and !is_crouched and !is_dead and ladder_count == 0:
-		jump(delta)
+		jump()
 	
 	if Input.is_action_just_pressed("Down" + str(id)) and is_on_floor() and !is_dead and ladder_count == 0:
 		crouch(true)
 	if Input.is_action_just_released("Down" + str(id)) and is_on_floor() and !is_dead and ladder_count == 0:
 		crouch(false)
-		
+	
 	if Input.is_action_just_pressed("Shoot" + str(id)) and !is_dead and can_shoot:
 		shoot()
+	
+	movement(delta)
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+func movement(delta):
 	direction = Input.get_vector("Left" + str(id), "Right" + str(id), "Up" + str(id), "Down" + str(id))
-	if direction and !is_crouched and !is_dead:
-		velocity.x = direction.x * speed * delta
+	var new_speed:float = speed
+	if !is_on_floor():
+		new_speed = speed * air_speed
+	elif sand_count > 0:
+		new_speed = speed * sand_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed * delta)
+		new_speed = speed
+	if direction and !is_crouched and !is_dead:
+		velocity.x = direction.x * new_speed
+	else:
+		velocity.x = 0
 	
 	if direction and ladder_count != 0 and !is_dead:
-		velocity.y = direction.y * speed * delta
+		velocity.y = direction.y * new_speed
 	else:
 		if ladder_count != 0:
-			velocity.y = move_toward(velocity.y, 0, speed * delta)
+			velocity.y = 0
 		# Add the gravity.
-		if not is_on_floor() and ladder_count == 0:
+		if !is_on_floor() and ladder_count == 0:
 			velocity.y += gravity * delta
 			was_in_air = true
 		else:
@@ -78,7 +89,7 @@ func _physics_process(delta):
 
 func update_animation():
 	if !animation_locked:
-		if direction.x != 0:
+		if velocity.x != 0:
 			animated_sprite.play("run")
 		else :
 			animated_sprite.play("idle")
@@ -97,8 +108,8 @@ func update_facing_direction():
 		bullet_pos = Vector2(-15.5, bullet_pos.y)
 		muzzle_pos = Vector2(-19, muzzle_pos.y)
 
-func jump(delta):
-	velocity.y = jump_velocity * delta
+func jump():
+	velocity.y = jump_velocity
 	animated_sprite.play("jump")
 	animation_locked = true
 
@@ -137,24 +148,28 @@ func shoot(): #Randomizált fel és le eltolás
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("bullet"):
-		health -= 1
+		health = max(0, health - 1)
 		health_bar.frame = 5 - health
 		if health == 0:
 			death()
 	elif area.is_in_group("ladder"):
 		ladder_count += 1
+	elif area.is_in_group("slow_sand"):
+		sand_count += 1
 	elif area.is_in_group("fire") or area.is_in_group("explotion") or area.is_in_group("killzone"):
 		health = 0
 		death()
 	elif area.is_in_group("health_pack"):
 		if 0 < health and health < 5:
-			health += 1
+			health = min(5, health + 1)
 			health_bar.frame = 5 - health
 			area.get_parent().get_parent().queue_free()
 
 func _on_area_2d_area_exited(area):
 	if area.is_in_group("ladder"):
 		ladder_count = max(0, ladder_count - 1)
+	elif area.is_in_group("slow_sand"):
+		sand_count = max(0, sand_count - 1)
 
 func _on_timer_timeout():
 	timer.stop()

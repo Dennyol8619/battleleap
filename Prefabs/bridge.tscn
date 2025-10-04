@@ -10,17 +10,17 @@ size = Vector2(15, 3)
 size = Vector2(16, 1)
 
 [node name="Bridge" type="Node2D"]
-script = ExtResource("1_4lqne")
 
 [node name="Bridge1" type="Sprite2D" parent="."]
 position = Vector2(8, 8)
 texture = ExtResource("1_vo61l")
 hframes = 9
+script = ExtResource("1_4lqne")
 
-[node name="1Area2D" type="Area2D" parent="Bridge1"]
+[node name="Area2D" type="Area2D" parent="Bridge1"]
 position = Vector2(0, -3)
 
-[node name="1CollisionShape2D" type="CollisionShape2D" parent="Bridge1/1Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge1/Area2D"]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_jekfe")
 
@@ -32,17 +32,18 @@ position = Vector2(-2.23517e-08, -3)
 rotation = 0.174533
 shape = SubResource("RectangleShape2D_tyy6o")
 
-[node name="Timer1" type="Timer" parent="Bridge1"]
+[node name="Timer" type="Timer" parent="Bridge1"]
 
 [node name="Bridge2" type="Sprite2D" parent="."]
 position = Vector2(24, 8)
 texture = ExtResource("1_vo61l")
 hframes = 9
 frame = 1
+script = ExtResource("1_4lqne")
 
-[node name="2Area2D" type="Area2D" parent="Bridge2"]
+[node name="Area2D" type="Area2D" parent="Bridge2"]
 
-[node name="2CollisionShape2D" type="CollisionShape2D" parent="Bridge2/2Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge2/Area2D"]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_jekfe")
 
@@ -53,17 +54,18 @@ position = Vector2(-2.23517e-08, -3)
 rotation = 0.174533
 shape = SubResource("RectangleShape2D_tyy6o")
 
-[node name="Timer2" type="Timer" parent="Bridge2"]
+[node name="Timer" type="Timer" parent="Bridge2"]
 
 [node name="Bridge3" type="Sprite2D" parent="."]
 position = Vector2(40, 8)
 texture = ExtResource("1_vo61l")
 hframes = 9
 frame = 2
+script = ExtResource("1_4lqne")
 
-[node name="3Area2D" type="Area2D" parent="Bridge3"]
+[node name="Area2D" type="Area2D" parent="Bridge3"]
 
-[node name="3CollisionShape2D" type="CollisionShape2D" parent="Bridge3/3Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge3/Area2D"]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_jekfe")
 
@@ -74,17 +76,18 @@ position = Vector2(-6.70552e-08, 0)
 rotation = 0.174533
 shape = SubResource("RectangleShape2D_tyy6o")
 
-[node name="Timer3" type="Timer" parent="Bridge3"]
+[node name="Timer" type="Timer" parent="Bridge3"]
 
 [node name="Bridge4" type="Sprite2D" parent="."]
 position = Vector2(56, 8)
 texture = ExtResource("1_vo61l")
 hframes = 9
 frame = 3
+script = ExtResource("1_4lqne")
 
-[node name="4Area2D" type="Area2D" parent="Bridge4"]
+[node name="Area2D" type="Area2D" parent="Bridge4"]
 
-[node name="4CollisionShape2D" type="CollisionShape2D" parent="Bridge4/4Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge4/Area2D"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_jekfe")
 
@@ -95,17 +98,18 @@ position = Vector2(0, 2)
 rotation = 0.0698132
 shape = SubResource("RectangleShape2D_tyy6o")
 
-[node name="Timer4" type="Timer" parent="Bridge4"]
+[node name="Timer" type="Timer" parent="Bridge4"]
 
 [node name="Bridge5" type="Sprite2D" parent="."]
 position = Vector2(72, 8)
 texture = ExtResource("1_vo61l")
 hframes = 9
 frame = 4
+script = ExtResource("1_4lqne")
 
-[node name="5Area2D" type="Area2D" parent="Bridge5"]
+[node name="Area2D" type="Area2D" parent="Bridge5"]
 
-[node name="5CollisionShape2D" type="CollisionShape2D" parent="Bridge5/5Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge5/Area2D"]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_jekfe")
 
@@ -115,17 +119,18 @@ shape = SubResource("RectangleShape2D_jekfe")
 position = Vector2(0, 2.55)
 shape = SubResource("RectangleShape2D_tyy6o")
 
-[node name="Timer5" type="Timer" parent="Bridge5"]
+[node name="Timer" type="Timer" parent="Bridge5"]
 
 [node name="Bridge6" type="Sprite2D" parent="."]
 position = Vector2(88, 8)
 texture = ExtResource("1_vo61l")
 hframes = 9
 frame = 5
+script = ExtResource("1_4lqne")
 
-[node name="6Area2D" type="Area2D" parent="Bridge6"]
+[node name="Area2D" type="Area2D" parent="Bridge6"]
 
-[node name="6CollisionShape2D" type="CollisionShape2D" parent="Bridge6/6Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge6/Area2D"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_jekfe")
 
@@ -136,17 +141,18 @@ position = Vector2(0, 2)
 rotation = -0.0698132
 shape = SubResource("RectangleShape2D_tyy6o")
 
-[node name="Timer6" type="Timer" parent="Bridge6"]
+[node name="Timer" type="Timer" parent="Bridge6"]
 
 [node name="Bridge7" type="Sprite2D" parent="."]
 position = Vector2(104, 8)
 texture = ExtResource("1_vo61l")
 hframes = 9
 frame = 6
+script = ExtResource("1_4lqne")
 
-[node name="7Area2D" type="Area2D" parent="Bridge7"]
+[node name="Area2D" type="Area2D" parent="Bridge7"]
 
-[node name="7CollisionShape2D" type="CollisionShape2D" parent="Bridge7/7Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge7/Area2D"]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_jekfe")
 
@@ -157,17 +163,18 @@ position = Vector2(-6.70552e-08, 0)
 rotation = -0.174533
 shape = SubResource("RectangleShape2D_tyy6o")
 
-[node name="Timer7" type="Timer" parent="Bridge7"]
+[node name="Timer" type="Timer" parent="Bridge7"]
 
 [node name="Bridge8" type="Sprite2D" parent="."]
 position = Vector2(120, 8)
 texture = ExtResource("1_vo61l")
 hframes = 9
 frame = 7
+script = ExtResource("1_4lqne")
 
-[node name="8Area2D" type="Area2D" parent="Bridge8"]
+[node name="Area2D" type="Area2D" parent="Bridge8"]
 
-[node name="8CollisionShape2D" type="CollisionShape2D" parent="Bridge8/8Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge8/Area2D"]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_jekfe")
 
@@ -178,17 +185,18 @@ position = Vector2(-2.23517e-08, -3)
 rotation = -0.174533
 shape = SubResource("RectangleShape2D_tyy6o")
 
-[node name="Timer8" type="Timer" parent="Bridge8"]
+[node name="Timer" type="Timer" parent="Bridge8"]
 
 [node name="Bridge9" type="Sprite2D" parent="."]
 position = Vector2(136, 8)
 texture = ExtResource("1_vo61l")
 hframes = 9
 frame = 8
+script = ExtResource("1_4lqne")
 
-[node name="9Area2D" type="Area2D" parent="Bridge9"]
+[node name="Area2D" type="Area2D" parent="Bridge9"]
 
-[node name="9CollisionShape2D" type="CollisionShape2D" parent="Bridge9/9Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge9/Area2D"]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_jekfe")
 
@@ -199,23 +207,23 @@ position = Vector2(2.23517e-08, -6)
 rotation = -0.174533
 shape = SubResource("RectangleShape2D_tyy6o")
 
-[node name="Timer9" type="Timer" parent="Bridge9"]
+[node name="Timer" type="Timer" parent="Bridge9"]
 
-[connection signal="body_entered" from="Bridge1/1Area2D" to="." method="_on_area_2d_body_entered1"]
-[connection signal="timeout" from="Bridge1/Timer1" to="." method="_on_timer_timeout1"]
-[connection signal="body_entered" from="Bridge2/2Area2D" to="." method="_on_area_2d_body_entered2"]
-[connection signal="timeout" from="Bridge2/Timer2" to="." method="_on_timer_timeout2"]
-[connection signal="body_entered" from="Bridge3/3Area2D" to="." method="_on_area_2d_body_entered3"]
-[connection signal="timeout" from="Bridge3/Timer3" to="." method="_on_timer_timeout3"]
-[connection signal="body_entered" from="Bridge4/4Area2D" to="." method="_on_area_2d_body_entered4"]
-[connection signal="timeout" from="Bridge4/Timer4" to="." method="_on_timer_timeout4"]
-[connection signal="body_entered" from="Bridge5/5Area2D" to="." method="_on_area_2d_body_entered5"]
-[connection signal="timeout" from="Bridge5/Timer5" to="." method="_on_timer_timeout5"]
-[connection signal="body_entered" from="Bridge6/6Area2D" to="." method="_on_area_2d_body_entered6"]
-[connection signal="timeout" from="Bridge6/Timer6" to="." method="_on_timer_timeout6"]
-[connection signal="body_entered" from="Bridge7/7Area2D" to="." method="_on_area_2d_body_entered7"]
-[connection signal="timeout" from="Bridge7/Timer7" to="." method="_on_timer_timeout7"]
-[connection signal="body_entered" from="Bridge8/8Area2D" to="." method="_on_area_2d_body_entered8"]
-[connection signal="timeout" from="Bridge8/Timer8" to="." method="_on_timer_timeout8"]
-[connection signal="body_entered" from="Bridge9/9Area2D" to="." method="_on_area_2d_body_entered9"]
-[connection signal="timeout" from="Bridge9/Timer9" to="." method="_on_timer_timeout9"]
+[connection signal="body_entered" from="Bridge1/Area2D" to="Bridge1" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Bridge1/Timer" to="Bridge1" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Bridge2/Area2D" to="Bridge2" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Bridge2/Timer" to="Bridge2" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Bridge3/Area2D" to="Bridge3" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Bridge3/Timer" to="Bridge3" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Bridge4/Area2D" to="Bridge4" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Bridge4/Timer" to="Bridge4" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Bridge5/Area2D" to="Bridge5" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Bridge5/Timer" to="Bridge5" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Bridge6/Area2D" to="Bridge6" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Bridge6/Timer" to="Bridge6" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Bridge7/Area2D" to="Bridge7" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Bridge7/Timer" to="Bridge7" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Bridge8/Area2D" to="Bridge8" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Bridge8/Timer" to="Bridge8" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Bridge9/Area2D" to="Bridge9" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Bridge9/Timer" to="Bridge9" method="_on_timer_timeout"]

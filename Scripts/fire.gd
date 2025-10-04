@@ -5,7 +5,7 @@ enum Colors {Red, Green, Blue, Purple, White, RandomColor}
 @export var color:Colors = Colors.Red
 @export var can_damage:bool = true
 @export var is_background:bool = false
-@onready var fire_collision:CollisionShape2D = $FireArea2D/FireCollisionShape2D
+@onready var fire_collision:CollisionShape2D = $Area2D/CollisionShape2D
 
 func _ready():
 	if is_background:

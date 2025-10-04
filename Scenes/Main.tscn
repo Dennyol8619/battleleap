@@ -1,9 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://c33ulhbmdu2va"]
+[gd_scene load_steps=14 format=3 uid="uid://c33ulhbmdu2va"]
 
 [ext_resource type="Script" uid="uid://ruksd3vdlj0w" path="res://Scripts/game_manager.gd" id="1_q7s2u"]
 [ext_resource type="Texture2D" uid="uid://db7ondh8miai3" path="res://Images/Platformer Tileset/Icons/grass-single-platform.png" id="2_7mv47"]
+[ext_resource type="Script" uid="uid://cm4x8rble0ovo" path="res://Scripts/camera_manager.gd" id="2_jw32o"]
 [ext_resource type="Texture2D" uid="uid://cqcqbxhhr8vwd" path="res://Images/Background.png" id="2_wkk8o"]
 [ext_resource type="Texture2D" uid="uid://blya1hlc8o777" path="res://Images/Platformer Tileset/Icons/cave-single-platform.png" id="3_lvc0p"]
+[ext_resource type="Texture2D" uid="uid://gmsbn2kcx54h" path="res://Images/Platformer Tileset/Icons/desert-single-platform.png" id="4_pbw6q"]
+[ext_resource type="PackedScene" uid="uid://bev3558kqokbf" path="res://Scenes/Maps.tscn" id="6_v1gob"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_00xaj"]
 
@@ -37,6 +40,20 @@ metadata/PointsToWin = 1
 metadata/StartingMap = &"res://Scenes/Test/Test.tscn"
 metadata/LoopMap = false
 
+[node name="TopLeft" type="Marker2D" parent="."]
+position = Vector2(0, 952)
+
+[node name="BottomRight" type="Marker2D" parent="."]
+position = Vector2(528, 1240)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("corner1", "corner2")]
+script = ExtResource("2_jw32o")
+corner1 = NodePath("../TopLeft")
+corner2 = NodePath("../BottomRight")
+
+[node name="Maps" parent="." instance=ExtResource("6_v1gob")]
+position = Vector2(0, 1240)
+
 [node name="Menu" type="CanvasLayer" parent="."]
 
 [node name="LevelSelect" type="OptionButton" parent="Menu"]
@@ -53,7 +70,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(68, 15)
 selected = 0
-item_count = 11
+item_count = 16
 popup/item_0/text = "GrassLand1"
 popup/item_0/icon = ExtResource("2_7mv47")
 popup/item_0/id = 0
@@ -84,8 +101,23 @@ popup/item_8/id = 8
 popup/item_9/text = "Cave5"
 popup/item_9/icon = ExtResource("3_lvc0p")
 popup/item_9/id = 9
-popup/item_10/text = "Teszt"
+popup/item_10/text = "Desert1"
+popup/item_10/icon = ExtResource("4_pbw6q")
 popup/item_10/id = 10
+popup/item_11/text = "Desert2"
+popup/item_11/icon = ExtResource("4_pbw6q")
+popup/item_11/id = 11
+popup/item_12/text = "Desert3"
+popup/item_12/icon = ExtResource("4_pbw6q")
+popup/item_12/id = 12
+popup/item_13/text = "Desert4"
+popup/item_13/icon = ExtResource("4_pbw6q")
+popup/item_13/id = 13
+popup/item_14/text = "Desert5"
+popup/item_14/icon = ExtResource("4_pbw6q")
+popup/item_14/id = 14
+popup/item_15/text = "Teszt"
+popup/item_15/id = 15
 
 [node name="LoopMap" type="CheckButton" parent="Menu"]
 anchors_preset = 8

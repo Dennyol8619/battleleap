@@ -15,13 +15,13 @@ script = ExtResource("2_pniau")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="SCollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 scale = Vector2(0.25, 0.25)
 shape = SubResource("RectangleShape2D_jekfe")
 
 [node name="Area2D" type="Area2D" parent="."]
 
-[node name="ACollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(0.25, 0.25)
 shape = SubResource("RectangleShape2D_jekfe")
 

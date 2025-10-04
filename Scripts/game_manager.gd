@@ -15,6 +15,8 @@ var point_to_win:int
 @onready var round_label:Label = $WinScreen/RoundLabel
 @onready var win_label:Label = $WinScreen/WinLabel
 @onready var background:TextureRect = $WinScreen/TextureRect
+@onready var map_select:Node2D = $Maps
+@onready var camera = $Camera2D
 
 var maps = [
 	"res://Scenes/GrassLand/Map1.tscn",
@@ -27,6 +29,11 @@ var maps = [
 	"res://Scenes/Cave/Map8.tscn",
 	"res://Scenes/Cave/Map9.tscn",
 	"res://Scenes/Cave/Map10.tscn",
+	"res://Scenes/Desert/Map11.tscn",
+	"res://Scenes/Desert/Map12.tscn",
+	"res://Scenes/Desert/Map13.tscn",
+	"res://Scenes/Desert/Map14.tscn",
+	"res://Scenes/Desert/Map15.tscn",
 	"res://Scenes/Test/Test.tscn"
 	]
 
@@ -41,6 +48,8 @@ func _ready():
 func reset_game():
 	map.queue_free()
 	ui.show()
+	map_select.show()
+	camera.enabled = true
 	set_meta("Player1Score", 0)
 	set_meta("Player2Score", 0)
 	set_meta("Player3Score", 0)
@@ -59,7 +68,12 @@ func _on_level_select_item_selected(index):
 		7: set_meta("StartingMap", "res://Scenes/Cave/Map8.tscn")
 		8: set_meta("StartingMap", "res://Scenes/Cave/Map9.tscn")
 		9: set_meta("StartingMap", "res://Scenes/Cave/Map10.tscn")
-		10: set_meta("StartingMap", "res://Scenes/Test/Test.tscn")
+		10: set_meta("StartingMap", "res://Scenes/Desert/Map11.tscn")
+		11: set_meta("StartingMap", "res://Scenes/Desert/Map12.tscn")
+		12: set_meta("StartingMap", "res://Scenes/Desert/Map13.tscn")
+		13: set_meta("StartingMap", "res://Scenes/Desert/Map14.tscn")
+		14: set_meta("StartingMap", "res://Scenes/Desert/Map15.tscn")
+		15: set_meta("StartingMap", "res://Scenes/Test/Test.tscn")
 
 func _on_loop_map_toggled(toggled_on):
 	set_meta("LoopMap", toggled_on)
@@ -101,6 +115,8 @@ func _on_rounds_to_win_item_selected(index):
 
 func _on_start_pressed():
 	ui.hide()
+	#map_select.hide()
+	camera.enabled = false
 	level = get_meta("StartingMap")
 	var scnene = load(level)
 	map = scnene.instantiate()

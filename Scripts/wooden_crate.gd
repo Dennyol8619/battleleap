@@ -6,8 +6,8 @@ var health:int = 5
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("bullet"):
-		health -= 1
-		frame += 1
+		health = max(0, health - 1)
+		frame = min(4, frame + 1)
 	elif area.is_in_group("explotion"):
 		health = 0
 		frame = 4

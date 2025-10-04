@@ -325,8 +325,8 @@ animation = &"Red"
 frame_progress = 0.610963
 script = ExtResource("6_ttpnc")
 
-[node name="FireArea2D" type="Area2D" parent="." groups=["fire"]]
+[node name="Area2D" type="Area2D" parent="." groups=["fire"]]
 
-[node name="FireCollisionShape2D" type="CollisionShape2D" parent="FireArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_x0m3p")

@@ -4,10 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://coii1hcvwjl4y" path="res://Images/Platformer Tileset/BG/sky2.png" id="2_tpv2f"]
 [ext_resource type="TileSet" uid="uid://cbwavwhjyl24" path="res://Prefabs/tiles.tres" id="3_cprdf"]
 [ext_resource type="PackedScene" uid="uid://cpfrdstjj26fm" path="res://Prefabs/killzone.tscn" id="5_7gbv6"]
+[ext_resource type="PackedScene" uid="uid://dec5p7ojot6js" path="res://Prefabs/map_border.tscn" id="6_rkpqq"]
 [ext_resource type="PackedScene" uid="uid://2wlmsuqwcce6" path="res://Prefabs/Players/player_spawner.tscn" id="11_04crs"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8wfv5"]
-normal = Vector2(1, 0)
 
 [node name="Map0" type="Node2D"]
 
@@ -69,14 +67,4 @@ id = 4
 [node name="KillZone" parent="." instance=ExtResource("5_7gbv6")]
 position = Vector2(264, 144)
 
-[node name="Wall" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-shape = SubResource("WorldBoundaryShape2D_8wfv5")
-
-[node name="Wall2" type="StaticBody2D" parent="."]
-position = Vector2(528, 0)
-rotation = 3.14159
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
-shape = SubResource("WorldBoundaryShape2D_8wfv5")
+[node name="MapBorder" parent="." instance=ExtResource("6_rkpqq")]

@@ -8,7 +8,7 @@ size = Vector2(14, 16)
 [node name="Ladder" type="Sprite2D"]
 texture = ExtResource("1_2guuy")
 
-[node name="LArea2D" type="Area2D" parent="." groups=["ladder"]]
+[node name="Area2D" type="Area2D" parent="." groups=["ladder"]]
 
-[node name="LCollisionShape2D" type="CollisionShape2D" parent="LArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_x0m3p")

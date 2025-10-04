@@ -4,12 +4,12 @@
 [ext_resource type="Script" uid="uid://d2ufsqakwfpbw" path="res://Scripts/bullet.gd" id="2_0f7cx"]
 [ext_resource type="Texture2D" uid="uid://ck2n8hg1b7te4" path="res://Images/TeamGunner/EXTRAS/SpongeBullet.png" id="3_qnouc"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ncwt2"]
-radius = 2.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuf4i"]
+size = Vector2(37.5, 3)
 
 [node name="Bullet" type="Sprite2D"]
 z_index = 1
-scale = Vector2(1e-05, 2)
+scale = Vector2(1e-05, 4)
 texture = ExtResource("1_sny4p")
 flip_h = true
 script = ExtResource("2_0f7cx")
@@ -17,7 +17,8 @@ script = ExtResource("2_0f7cx")
 [node name="Bullet" type="Area2D" parent="." groups=["bullet"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet"]
-shape = SubResource("CircleShape2D_ncwt2")
+position = Vector2(22.5, -0.5)
+shape = SubResource("RectangleShape2D_tuf4i")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(-20, 0)
